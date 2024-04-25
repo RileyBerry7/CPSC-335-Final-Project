@@ -1,29 +1,12 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+from parser import parse_csv
 
-# Define the graph
-graph = {}
+# Load data from CSV into the graph
+graph = parse_csv('edgeinformation.csv')
 
-# Building out the adjacency list 1 node at a time ;-;
-edges = [
-    (1, 2, 220), (1, 39, 160),
-    (2, 27, 141), (2, 3, 69),
-    (3, 4, 113),
-    (4, 5, 175), (4, 25, 78),
-    (5, 25, 181),
-    (25, 26, 60),
-    (26, 27, 124)
-]
-
-# Populate adjacency list
-for edge in edges:
-    source, target, weight = edge
-    if source not in graph:
-        graph[source] = []
-    graph[source].append((target, weight))
-
-# Create a directed graph
+# Create a undirected graph
 G = nx.Graph()
 
 # Add edges from the adjacency list
