@@ -1,0 +1,347 @@
+Edge Relation,Edge Weight
+A Parking to Stop 1,999
+A Parking to Stop 2,999
+A Parking to Stop 27,999
+A Parking to Stop 28,999
+A Parking to Stop 37,999
+A Parking to Stop 38,999
+G Parking to Stop 3,999
+G Parking to Stop 25,999
+G Parking to Stop 26,999
+G Parking to Stop 27,999
+Fullerton Arboretum to Stop 5,999
+Fullerton Arboretum to Stop 7,999
+Fullerton Arboretum to Stop 10,999
+Fullerton Arboretum to Stop 23,999
+Goodwin Field to Stop 26,999
+Goodwin Field to Stop 23,999
+Titan Stadium to Stop 27,999
+Titan Stadium to Stop 31,999
+Anderson Field to Stop 23,999
+Titan Sports Complex to Stop 31,999
+Titan Sports Complex to Stop 22,999
+Soccer Field to Stop 31,999
+Soccer Field to Stop 32,999
+Tennis Courts to Stop 51,999
+Tennis Courts to Stop 52,999
+Intramural Area to Stop 21,999
+Intramural Area to Stop 53,999
+Children's Center to Stop 30,999
+Children's Center to Stop 38,999
+A-South Parking to Stop 37,999
+A-South Parking to Stop 32,999
+A-South Parking to Stop 33,999
+A-South Parking to Stop 34,999
+Parking & Transport Office to Stop 34,999
+Parking & Transport Office to Stop 35,999
+Parking & Transport Office to Stop 37,999
+Corporation Yard to Stop 34,999
+Corporation Yard to Stop 40,999
+Corporation Yard to Stop 48,999
+D Parking to Stop 33,999
+D Parking to Stop 49,999
+D Parking to Stop 51,999
+Titan House to Stop 21,999
+Titan House to Stop 54,999
+Ruby Gerontology Center to Stop 20,999
+Ruby Gerontology Center to Stop 18,999
+Ruby Gerontology Center to Stop 17,999
+Ruby Gerontology Center to Stop 55,999
+Residence Halls to Stop 9,999
+Residence Halls to Stop 10,999
+Residence Halls to Stop 12,999
+Housing Office to Stop 11,999
+Housing Office to Stop 12,999
+Housing Office to Stop 13,999
+Student Housing to Stop 14,999
+Student Housing to Stop 15,999
+Student Housing to Stop 18,999
+Student Housing to Stop 19,999
+Student Health & Counseling Center to Stop 54,999
+Student Health & Counseling Center to Stop 57,999
+Student Health & Counseling Center to Stop 59,999
+Titan Gymnasium to Stop 52,999
+Titan Gymnasium to Stop 59,999
+Titan Gymnasium to Stop 79,999
+Student Rec Center to Stop 46,999
+Student Rec Center to Stop 50,999
+Student Rec Center to Stop 83,999
+State College Parking Structure to Stop 46,999
+State College Parking Structure to Stop 47,999
+University Police to Stop 43,999
+University Police to Stop 47,999
+University Police to Stop 48,999
+Golleher Alumni House to Stop 42,999
+Golleher Alumni House to Stop 43,999
+Golleher Alumni House to Stop 44,999
+Titan Student Union to Stop 44,999
+Titan Student Union to Stop 84,999
+Titan Student Union to Stop 85,999
+Titan Student Union to Stop 88,999
+Titan Student Union to Stop 89,999
+Bookstore/Titan Shops to Stop 81,999
+Bookstore/Titan Shops to Stop 84,999
+Bookstore/Titan Shops to Stop 85,999
+Pollak Library to Stop 74,999
+Pollak Library to Stop 76,999
+Pollak Library to Stop 77,999
+Education-Classroom to Stop 63,999
+Education-Classroom to Stop 64,999
+Education-Classroom to Stop 72,999
+Engineering to Stop 17,999
+Engineering to Stop 56,999
+Engineering to Stop 65,999
+Computer Science to Stop 17,999
+Computer Science to Stop 67,999
+E Parking to Stop 68,999
+E Parking to Stop 69,999
+I Parking to Stop 66,999
+I Parking to Stop 69,999
+I Parking to Stop 70,999
+Becker Ampitheatre to Stop 85,999
+Becker Ampitheatre to Stop 87,999
+Becker Ampitheatre to Stop 93,999
+Visual Arts to Stop 92,999
+Visual Arts to Stop 93,999
+Visual Arts to Stop 94,999
+Visual Arts to Stop 95,999
+Clayes Performing Arts Center to Stop 75,999
+Clayes Performing Arts Center to Stop 87,999
+Clayes Performing Arts Center to Stop 103,999
+Clayes Performing Arts Center to Stop 104,999
+Quad to Stop 74,999
+Quad to Stop 125,999
+Humanities-Social Science to Stop 72,999
+Humanities-Social Science to Stop 127,999
+Humanities-Social Science to Stop 128,999
+F Parking to Stop 70,999
+F Parking to Stop 114,999
+F Parking to Stop 116,999
+F Parking to Stop 129,999
+Eastside Parking Structure to Stop 69,999
+University Hall to Stop 119,999
+University Hall to Stop 122,999
+University Hall to Stop 127,999
+McCarthy Hall to Stop 122,999
+McCarthy Hall to Stop 123,999
+McCarthy Hall to Stop 124,999
+McCarthy Hall to Stop 126,999
+Greenhouse Complex to Stop 104,999
+Greenhouse Complex to Stop 105,999
+Nutwood Parking Structure to Stop 95,999
+Nutwood Parking Structure to Stop 97,999
+Nutwood Parking Structure to Stop 101,999
+Nutwood Parking Structure to Stop 102,999
+Dan Black Hall to Stop 106,999
+Dan Black Hall to Stop 107,999
+Dan Black Hall to Stop 121,999
+Dan Black Hall to Stop 123,999
+Carl's Jr. to Stop 117,999
+Carl's Jr. to Stop 118,999
+Carl's Jr. to Stop 119,999
+Carl's Jr. to Stop 120,999
+Langsdorf Hall to Stop 108,999
+Langsdorf Hall to Stop 109,999
+Langsdorf Hall to Stop 121,999
+Mihaylo Hall to Stop 110,999
+Mihaylo Hall to Stop 111,999
+Mihaylo Hall to Stop 115,999
+Mihaylo Hall to Stop 117,999
+C Parking to Stop 98,999
+C Parking to Stop 99,999
+C Parking to Stop 101,999
+Fullerton Marriott to Stop 111,999
+Fullerton Marriott to Stop 112,999
+Stop 1 to Stop 2,220
+Stop 1 to Stop 39,160
+Stop 2 to Stop 27,144
+Stop 2 to Stop 3,69
+Stop 3 to Stop 4,113
+Stop 4 to Stop 25,78
+Stop 4 to Stop 5,175
+Stop 5 to Stop 25,181
+Stop 5 to Stop 6,179
+Stop 6 to Stop 7,131
+Stop 7 to Stop 8,72
+Stop 8 to Stop 9,65
+Stop 8 to Stop 12,94
+Stop 9 to Stop 10,86
+Stop 10 to Stop 11,94
+Stop 11 to Stop 13,111
+Stop 11 to Stop 19,106
+Stop 12 to Stop 13,76
+Stop 13 to Stop 14,67
+Stop 14 to Stop 19,109
+Stop 14 to Stop 15,173
+Stop 15 to Stop 16,124
+Stop 16 to Stop 17,53
+Stop 16 to Stop 68,125
+Stop 17 to Stop 18,89
+Stop 17 to Stop 56,58
+Stop 17 to Stop 66,123
+Stop 18 to Stop 19,62
+Stop 19 to Stop 20,72
+Stop 20 to Stop 55,86
+Stop 20 to Stop 21,67
+Stop 21 to Stop 22,108
+Stop 21 to Stop 53,104
+Stop 22 to Stop 23,131
+Stop 23 to Stop 24,129
+Stop 24 to Stop 25,28
+Stop 24 to Stop 26,109
+Stop 25 to Stop 26,60
+Stop 26 to Stop 27,124
+Stop 27 to Stop 28,87
+Stop 28 to Stop 29,70
+Stop 29 to Stop 30,34
+Stop 29 to Stop 38,83
+Stop 30 to Stop 31,77
+Stop 30 to Stop 32,98
+Stop 32 to Stop 33,56
+Stop 32 to Stop 51,67
+Stop 33 to Stop 34,70
+Stop 34 to Stop 35,72
+Stop 34 to Stop 37,131
+Stop 35 to Stop 40,66
+Stop 35 to Stop 36,125
+Stop 36 to Stop 37,60
+Stop 36 to Stop 39,141
+Stop 37 to Stop 38,72
+Stop 40 to Stop 41,83
+Stop 41 to Stop 48,59
+Stop 41 to Stop 42,118
+Stop 42 to Stop 43,57
+Stop 42 to Stop 90,115
+Stop 43 to Stop 47,55
+Stop 43 to Stop 44,50
+Stop 44 to Stop 45,78
+Stop 45 to Stop 46,70
+Stop 45 to Stop 83,61
+Stop 45 to Stop 84,66
+Stop 46 to Stop 49,63
+Stop 47 to Stop 48,68
+Stop 48 to Stop 49,85
+Stop 49 to Stop 50,68
+Stop 50 to Stop 51,71
+Stop 50 to Stop 52,74
+Stop 52 to Stop 53,153
+Stop 52 to Stop 82,126
+Stop 53 to Stop 54,69
+Stop 53 to Stop 59,45
+Stop 54 to Stop 55,45
+Stop 55 to Stop 56,76
+Stop 56 to Stop 57,50
+Stop 56 to Stop 64,112
+Stop 57 to Stop 58,58
+Stop 58 to Stop 59,41
+Stop 58 to Stop 60,46
+Stop 60 to Stop 61,51
+Stop 60 to Stop 78,74
+Stop 61 to Stop 62,22
+Stop 61 to Stop 76,26
+Stop 62 to Stop 63,41
+Stop 62 to Stop 76,42
+Stop 63 to Stop 64,34
+Stop 64 to Stop 71,71
+Stop 64 to Stop 65,48
+Stop 65 to Stop 66,27
+Stop 66 to Stop 67,30
+Stop 67 to Stop 68,32
+Stop 68 to Stop 69,71
+Stop 69 to Stop 70,194
+Stop 70 to Stop 71,21
+Stop 71 to Stop 72,56
+Stop 71 to Stop 129,163
+Stop 72 to Stop 73,72
+Stop 73 to Stop 74,37
+Stop 73 to Stop 76,68
+Stop 74 to Stop 75,45
+Stop 74 to Stop 125,113
+Stop 75 to Stop 77,57
+Stop 75 to Stop 86,100
+Stop 75 to Stop 87,140
+Stop 77 to Stop 78,98
+Stop 77 to Stop 80,42
+Stop 78 to Stop 79,45
+Stop 79 to Stop 80,91
+Stop 79 to Stop 82,39
+Stop 80 to Stop 81,36
+Stop 81 to Stop 82,83
+Stop 81 to Stop 86,21
+Stop 81 to Stop 85,62
+Stop 82 to Stop 83,80
+Stop 82 to Stop 84,69
+Stop 83 to Stop 84,49
+Stop 84 to Stop 85,61
+Stop 85 to Stop 86,57
+Stop 85 to Stop 87,63
+Stop 85 to Stop 88,87
+Stop 87 to Stop 93,52
+Stop 87 to Stop 94,90
+Stop 87 to Stop 103,107
+Stop 88 to Stop 93,49
+Stop 88 to Stop 89,63
+Stop 88 to Stop 92,61
+Stop 89 to Stop 90,63
+Stop 89 to Stop 91,86
+Stop 89 to Stop 92,43
+Stop 90 to Stop 91,67
+Stop 91 to Stop 92,77
+Stop 91 to Stop 96,106
+Stop 93 to Stop 94,78
+Stop 93 to Stop 103,125
+Stop 94 to Stop 95,76
+Stop 94 to Stop 103,61
+Stop 95 to Stop 96,101
+Stop 95 to Stop 103,105
+Stop 96 to Stop 97,74
+Stop 97 to Stop 98,91
+Stop 98 to Stop 99,132
+Stop 99 to Stop 100,107
+Stop 100 to Stop 101,54
+Stop 100 to Stop 106,63
+Stop 100 to Stop 110,270
+Stop 101 to Stop 102,74
+Stop 101 to Stop 106,53
+Stop 102 to Stop 103,72
+Stop 102 to Stop 105,54
+Stop 103 to Stop 104,78
+Stop 104 to Stop 123,74
+Stop 104 to Stop 124,58
+Stop 105 to Stop 106,69
+Stop 105 to Stop 123,52
+Stop 106 to Stop 107,73
+Stop 107 to Stop 108,77
+Stop 108 to Stop 109,82
+Stop 108 to Stop 121,42
+Stop 109 to Stop 120,y
+Stop 109 to Stop 120,44
+Stop 109 to Stop 117,55
+Stop 109 to Stop 110,54
+Stop 110 to Stop 111,107
+Stop 111 to Stop 115,91
+Stop 111 to Stop 112,52
+Stop 112 to Stop 113,85
+Stop 113 to Fullerton Marriott,999
+Stop 113 to Stop 114,27
+Stop 113 to Stop 115,35
+Stop 114 to Stop 116,68
+Stop 115 to Stop 116,37
+Stop 116 to Stop 117,62
+Stop 116 to Stop 118,61
+Stop 117 to Stop 120,43
+Stop 118 to Stop 117,41
+Stop 118 to Stop 119,37
+Stop 118 to Stop 129,58
+Stop 119 to Stop 120,38
+Stop 121 to Stop 120,70
+Stop 121 to Stop 122,41
+Stop 122 to Stop 123,125
+Stop 122 to Stop 126,45
+Stop 124 to Stop 25,53
+Stop 124 to Stop 125,40
+Stop 125 to Stop 126,55
+Stop 126 to Stop 127,34
+Stop 127 to Stop 128,45
+Stop 127 to Stop 129,78
+Stop 128 to Stop 73,40
