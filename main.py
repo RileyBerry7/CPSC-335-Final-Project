@@ -13,8 +13,6 @@ G = nx.Graph()
 # Add edges from the adjacency list
 for node in graph:
     for neighbor, weight in graph[node]:
-        if weight == 999:
-            continue
         G.add_edge(node, neighbor, weight=weight)
         
 node_positions = {
@@ -67,6 +65,7 @@ spring_positions = nx.spring_layout(G, k=0.15, iterations=50)
 pos = {**spring_positions, **node_positions}
 
 # Draw the graph
+pos = nx.spring_layout(G)  # Positions for all nodes
 nx.draw(G, pos, with_labels=True, node_size=700, node_color="skyblue", font_size=10, font_weight="bold")
 edge_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
