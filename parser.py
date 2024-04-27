@@ -1,6 +1,6 @@
 import csv
 
-def parse_csv(filename):
+def parse_graph_csv(filename):
     graph = {}
     with open(filename, 'r') as file:
         reader = csv.DictReader(file)
@@ -17,3 +17,13 @@ def parse_csv(filename):
                 graph[source] = []
             graph[source].append((dest, edge_weight))
     return graph
+
+def parse_location_csv(filename):
+    locations = []
+    with open(filename) as r:
+        reader = csv.DictReader(r)
+        for row in reader:
+            if not row['Locations'].__contains__("Stop"):
+                locations.append(row['Locations'])
+
+    return locations

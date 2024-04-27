@@ -4,6 +4,9 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 from tkinter import ttk
 
+import parser
+
+
 class CampusNavigationApp:
     def __init__(self, root):
         self.root = root
@@ -19,16 +22,18 @@ class CampusNavigationApp:
         self.input_panel = ttk.Frame(self.root, padding="20")
         self.input_panel.grid(row=0, column=0, sticky="ns")
 
+        locations = parser.parse_location_csv('locations.csv')
+
         # Start point
         ttk.Label(self.input_panel, text="Start Point:").grid(row=0, column=0, sticky="w")
         self.start_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
-        self.start_combo["values"] = ["Location 1", "Location 2", "Location 3"]  # Add your campus locations here
+        self.start_combo["values"] = locations  # Add your campus locations here
         self.start_combo.grid(row=0, column=1)
 
         # End point
         ttk.Label(self.input_panel, text="End Point:").grid(row=1, column=0, sticky="w")
         self.end_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
-        self.end_combo["values"] = ["Location 1", "Location 2", "Location 3"]  # Add your campus locations here
+        self.end_combo["values"] = locations  # Add your campus locations here
         self.end_combo.grid(row=1, column=1)
 
         # Algorithm selection
