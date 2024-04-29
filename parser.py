@@ -27,3 +27,14 @@ def parse_location_csv(filename):
                 locations.append(row['Locations'])
 
     return locations
+
+def parse_node_positions_csv(filename):
+    node_positions = {}
+    with open(filename, 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            node_name = row['Node']
+            coordinate_x = float(row['Coordinate_X'])
+            coordinate_y = float(row['Coordinate_Y'])
+            node_positions[node_name] = (coordinate_x, coordinate_y)
+    return node_positions
