@@ -1,5 +1,3 @@
-from collections import deque
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -17,15 +15,60 @@ class CampusNavigationApp:
         self.root.title("Campus Navigation System")
         self.root.geometry("1200x600")
 
-        # Create an undirected graph
-        self.G = nx.Graph()
+        # Create UI elements
+        self.create_input_panel()
+        self.create_canvas()
+        self.canvas_update_interval = 10  # Update canvas every 100 milliseconds
 
+    def create_input_panel(self):
+        self.input_panel = ttk.Frame(self.root, padding="20")
+        self.input_panel.grid(row=0, column=0, sticky="ns")
+        self.input_panel.configure(style="InputPanel.TFrame")
+
+        locations = parser.parse_location_csv('locations.csv')
+
+        # Start point
+        ttk.Label(self.input_panel, text="Start Point:").grid(row=0, column=0, sticky="w")
+        self.start_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
+        self.start_combo["values"] = locations  # Add your campus locations here
+        self.start_combo.grid(row=0, column=1)
+
+        # End point
+        ttk.Label(self.input_panel, text="End Point:").grid(row=1, column=0, sticky="w")
+        self.end_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
+        self.end_combo["values"] = locations  # Add your campus locations here
+        self.end_combo.grid(row=1, column=1)
+
+        # Algorithm selection
+        ttk.Label(self.input_panel, text="Algorithm:").grid(row=2, column=0, sticky="w")
+        self.algorithm_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
+        self.algorithm_combo["values"] = ["DFS", "BFS", "Dijkstra's"]  # Add more algorithms if needed
+        self.algorithm_combo.grid(row=2, column=1)
+
+        # Button to execute the selected algorithm
+        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm, style="Accent.TButton")
+        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20, sticky="ew")  # Centered in the left panel side
+
+        # Configure button style
+        self.style = ttk.Style()
+        self.style.configure("Accent.TButton", background="#4CAF50", foreground="white", font=("Helvetica", 12))
+        self.style.configure("InputPanel.TFrame", background="#f0f0f0")
+
+    def create_canvas(self):
+        self.canvas_frame = ttk.Frame(self.root)
+        self.canvas_frame.grid(row=0, column=1, sticky="nsew")
+
+        # Load data from CSV into the graph
         graph = parser.parse_graph_csv('edgeinformation.csv')
+        image = mpimg.imread('campus map node graph.png')
+
+        # Create an undirected graph
+        G = nx.Graph()
 
         # Add edges from the adjacency list
-        for node in self.G:
+        for node in graph:
             for neighbor, weight in graph[node]:
-                self.G.add_edge(node, neighbor, weight=weight)
+                G.add_edge(node, neighbor, weight=weight)
 
         node_positions = {
             'A Parking': (106.715, 754.148),
@@ -209,61 +252,10 @@ class CampusNavigationApp:
             '128': (373.512, 207.864),
             '129': (429.691, 174.157),
         }
-
-        self.pos = node_positions
-
-        # Create UI elements
-        self.create_input_panel()
-        self.create_canvas()
-        self.canvas_update_interval = 10  # Update canvas every 100 milliseconds
-
-
-
-    def create_input_panel(self):
-        self.input_panel = ttk.Frame(self.root, padding="20")
-        self.input_panel.grid(row=0, column=0, sticky="ns")
-        self.input_panel.configure(style="InputPanel.TFrame")
-
-        locations = parser.parse_location_csv('locations.csv')
-
-        # Start point
-        ttk.Label(self.input_panel, text="Start Point:").grid(row=0, column=0, sticky="w")
-        self.start_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
-        self.start_combo["values"] = locations  # Add your campus locations here
-        self.start_combo.grid(row=0, column=1)
-
-        # End point
-        ttk.Label(self.input_panel, text="End Point:").grid(row=1, column=0, sticky="w")
-        self.end_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
-        self.end_combo["values"] = locations  # Add your campus locations here
-        self.end_combo.grid(row=1, column=1)
-
-        # Algorithm selection
-        ttk.Label(self.input_panel, text="Algorithm:").grid(row=2, column=0, sticky="w")
-        self.algorithm_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
-        self.algorithm_combo["values"] = ["DFS", "BFS", "Dijkstra's"]  # Add more algorithms if needed
-        self.algorithm_combo.grid(row=2, column=1)
-
-        # Button to execute the selected algorithm
-        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm,
-                                         style="Accent.TButton")
-        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20,
-                                 sticky="ew")  # Centered in the left panel side
-
-        # Configure button style
-        self.style = ttk.Style()
-        self.style.configure("Accent.TButton", background="#4CAF50", foreground="white", font=("Helvetica", 12))
-        self.style.configure("InputPanel.TFrame", background="#f0f0f0")
-
-    def create_canvas(self):
-        self.canvas_frame = ttk.Frame(self.root)
-        self.canvas_frame.grid(row=0, column=1, sticky="nsew")
-
-        # Load data from CSV into the graph
-        image = mpimg.imread('campus map node graph.png')
+        pos = node_positions
 
         self.fig, self.ax = plt.subplots(figsize=(6, 6))
-        nx.draw(self.G, self.pos, with_labels=False, node_size=8, node_color="skyblue", font_size=8, font_weight="bold",
+        nx.draw(G, pos, with_labels=False, node_size=50, node_color="skyblue", font_size=8, font_weight="bold",
                 ax=self.ax, edge_color="gray", width=0.5)
 
         image_width = 629
@@ -281,28 +273,8 @@ class CampusNavigationApp:
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
 
-        if algorithm == "BFS":
-            path = self.bfs(start_point, end_point)
-            print("BFS Path:", path)
-            # Highlight the path on the canvas
-            self.highlight_path(path)
         # Execute selected algorithm and update graph display accordingly
         # Add your algorithm implementation here
-
-    def bfs(self, start, end):
-        # Implementation of Breadth-First Search algorithm
-        queue = deque([(start, [start])])
-        visited = set([start])
-
-        while queue:
-            current, path = queue.popleft()
-            if current == end:
-                return path
-            for neighbor in self.G.neighbors(current):
-                if neighbor not in visited:
-                    visited.add(neighbor)
-                    queue.append((neighbor, path + [neighbor]))
-        return []
 
 
 if __name__ == "__main__":
