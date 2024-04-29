@@ -21,7 +21,7 @@ class CampusNavigationApp:
         self.canvas_update_interval = 10  # Update canvas every 100 milliseconds
 
     def create_input_panel(self):
-        self.input_panel = ttk.Frame(self.root, padding="20")
+        self.input_panel = ttk.Frame(self.root, padding="20",style="Dark.TFrame")
         self.input_panel.grid(row=0, column=0, sticky="ns")
         self.input_panel.configure(style="InputPanel.TFrame")
 
