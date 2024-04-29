@@ -21,7 +21,7 @@ class CampusNavigationApp:
         self.canvas_update_interval = 10  # Update canvas every 100 milliseconds
 
     def create_input_panel(self):
-        self.input_panel = ttk.Frame(self.root, padding="20",style="Dark.TFrame")
+        self.input_panel = ttk.Frame(self.root, padding="20", style="Dark.TFrame")
         self.input_panel.grid(row=0, column=0, sticky="ns")
         self.input_panel.configure(style="InputPanel.TFrame")
 
@@ -46,13 +46,24 @@ class CampusNavigationApp:
         self.algorithm_combo.grid(row=2, column=1)
 
         # Button to execute the selected algorithm
-        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm, style="Accent.TButton")
-        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20, sticky="ew")  # Centered in the left panel side
+        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm,
+                                         style="Accent.TButton")
+        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20,
+                                 sticky="ew")  # Centered in the left panel side
+
+        # Generate traffic button
+        self.traffic_button = ttk.Button(self.input_panel, text="Generate traffic", command=self.generate_traffic,
+                                         style="Accent.TButton")
+        self.traffic_button.grid(row=3, column=0, columnspan=2, pady=10, sticky="ew")
 
         # Configure button style
         self.style = ttk.Style()
         self.style.configure("Accent.TButton", background="#4CAF50", foreground="white", font=("Helvetica", 12))
         self.style.configure("InputPanel.TFrame", background="#f0f0f0")
+
+    def generate_traffic(self):
+        # Implement traffic generation functionality here
+        pass
 
     def create_canvas(self):
         self.canvas_frame = ttk.Frame(self.root)
