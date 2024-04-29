@@ -258,6 +258,8 @@ class CampusNavigationApp:
         nx.draw(G, pos, with_labels=False, node_size=50, node_color="skyblue", font_size=8, font_weight="bold",
                 ax=self.ax, edge_color="gray", width=0.5)
 
+        nx.draw_networkx_edges(G, pos, ax=self.ax, edge_color='black', width=0.5)
+
         image_width = 629
         image_height = 897
 
