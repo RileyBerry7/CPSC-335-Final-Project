@@ -1,157 +1,157 @@
 Edge Relation,Edge Weight
-A Parking to 1,999
-A Parking to 2,999
-A Parking to 27,999
-A Parking to 28,999
-A Parking to 37,999
-A Parking to 38,999
-G Parking to 3,999
-G Parking to 25,999
-G Parking to 26,999
-G Parking to 27,999
-Fullerton Arboretum to 5,999
-Fullerton Arboretum to 7,999
-Fullerton Arboretum to 10,999
-Fullerton Arboretum to 23,999
-Goodwin Field to 26,999
-Goodwin Field to 23,999
-Titan Stadium to 27,999
-Titan Stadium to 31,999
-Anderson Field to 23,999
-Titan Sports Complex to 31,999
-Titan Sports Complex to 22,999
-Soccer Field to 31,999
-Soccer Field to 32,999
-Tennis Courts to 51,999
-Tennis Courts to 52,999
-Intramural Area to 21,999
-Intramural Area to 53,999
-Children's Center to 30,999
-Children's Center to 38,999
-A-South Parking to 37,999
-A-South Parking to 32,999
-A-South Parking to 33,999
-A-South Parking to 34,999
-Parking & Transport Office to 34,999
-Parking & Transport Office to 35,999
-Parking & Transport Office to 37,999
-Corporation Yard to 34,999
-Corporation Yard to 40,999
-Corporation Yard to 48,999
-D Parking to 33,999
-D Parking to 49,999
-D Parking to 51,999
-Titan House to 21,999
-Titan House to 54,999
-Ruby Gerontology Center to 20,999
-Ruby Gerontology Center to 18,999
-Ruby Gerontology Center to 17,999
-Ruby Gerontology Center to 55,999
-Residence Halls to 9,999
-Residence Halls to 10,999
-Residence Halls to 12,999
-Housing Office to 11,999
-Housing Office to 12,999
-Housing Office to 13,999
-Student Housing to 14,999
-Student Housing to 15,999
-Student Housing to 18,999
-Student Housing to 19,999
-Student Health & Counseling Center to 54,999
-Student Health & Counseling Center to 57,999
-Student Health & Counseling Center to 59,999
-Titan Gymnasium to 52,999
-Titan Gymnasium to 59,999
-Titan Gymnasium to 79,999
-Student Rec Center to 46,999
-Student Rec Center to 50,999
-Student Rec Center to 83,999
-State College Parking Structure to 46,999
-State College Parking Structure to 47,999
-University Police to 43,999
-University Police to 47,999
-University Police to 48,999
-Golleher Alumni House to 42,999
-Golleher Alumni House to 43,999
-Golleher Alumni House to 44,999
-Titan Student Union to 44,999
-Titan Student Union to 84,999
-Titan Student Union to 85,999
-Titan Student Union to 88,999
-Titan Student Union to 89,999
-Bookstore/Titan Shops to 81,999
-Bookstore/Titan Shops to 84,999
-Bookstore/Titan Shops to 85,999
-Pollak Library to 74,999
-Pollak Library to 76,999
-Pollak Library to 77,999
-Education-Classroom to 63,999
-Education-Classroom to 64,999
-Education-Classroom to 72,999
-Engineering to 17,999
-Engineering to 56,999
-Engineering to 65,999
-Computer Science to 17,999
-Computer Science to 67,999
-E Parking to 68,999
-E Parking to 69,999
-I Parking to 66,999
-I Parking to 69,999
-I Parking to 70,999
-Becker Ampitheatre to 85,999
-Becker Ampitheatre to 87,999
-Becker Ampitheatre to 93,999
-Visual Arts to 92,999
-Visual Arts to 93,999
-Visual Arts to 94,999
-Visual Arts to 95,999
-Clayes Performing Arts Center to 75,999
-Clayes Performing Arts Center to 87,999
-Clayes Performing Arts Center to 103,999
-Clayes Performing Arts Center to 104,999
-Quad to 74,999
-Quad to 125,999
-Humanities-Social Science to 72,999
-Humanities-Social Science to 127,999
-Humanities-Social Science to 128,999
-F Parking to 70,999
-F Parking to 114,999
-F Parking to 116,999
-F Parking to 129,999
-Eastside Parking Structure to 69,999
-University Hall to 119,999
-University Hall to 122,999
-University Hall to 127,999
-McCarthy Hall to 122,999
-McCarthy Hall to 123,999
-McCarthy Hall to 124,999
-McCarthy Hall to 126,999
-Greenhouse Complex to 104,999
-Greenhouse Complex to 105,999
-Nutwood Parking Structure to 95,999
-Nutwood Parking Structure to 97,999
-Nutwood Parking Structure to 101,999
-Nutwood Parking Structure to 102,999
-Dan Black Hall to 106,999
-Dan Black Hall to 107,999
-Dan Black Hall to 121,999
-Dan Black Hall to 123,999
-Carl's Jr. to 117,999
-Carl's Jr. to 118,999
-Carl's Jr. to 119,999
-Carl's Jr. to 120,999
-Langsdorf Hall to 108,999
-Langsdorf Hall to 109,999
-Langsdorf Hall to 121,999
-Mihaylo Hall to 110,999
-Mihaylo Hall to 111,999
-Mihaylo Hall to 115,999
-Mihaylo Hall to 117,999
-C Parking to 98,999
-C Parking to 99,999
-C Parking to 101,999
-Fullerton Marriott to 111,999
-Fullerton Marriott to 112,999
+A Parking to 1,0
+A Parking to 2,0
+A Parking to 27,0
+A Parking to 28,0
+A Parking to 37,0
+A Parking to 38,0
+G Parking to 3,0
+G Parking to 25,0
+G Parking to 26,0
+G Parking to 27,0
+Fullerton Arboretum to 5,0
+Fullerton Arboretum to 7,0
+Fullerton Arboretum to 10,0
+Fullerton Arboretum to 23,0
+Goodwin Field to 26,0
+Goodwin Field to 23,0
+Titan Stadium to 27,0
+Titan Stadium to 31,0
+Anderson Field to 23,0
+Titan Sports Complex to 31,0
+Titan Sports Complex to 22,0
+Soccer Field to 31,0
+Soccer Field to 32,0
+Tennis Courts to 51,0
+Tennis Courts to 52,0
+Intramural Area to 21,0
+Intramural Area to 53,0
+Children's Center to 30,0
+Children's Center to 38,0
+A-South Parking to 37,0
+A-South Parking to 32,0
+A-South Parking to 33,0
+A-South Parking to 34,0
+Parking & Transport Office to 34,0
+Parking & Transport Office to 35,0
+Parking & Transport Office to 37,0
+Corporation Yard to 34,0
+Corporation Yard to 40,0
+Corporation Yard to 48,0
+D Parking to 33,0
+D Parking to 49,0
+D Parking to 51,0
+Titan House to 21,0
+Titan House to 54,0
+Ruby Gerontology Center to 20,0
+Ruby Gerontology Center to 18,0
+Ruby Gerontology Center to 17,0
+Ruby Gerontology Center to 55,0
+Residence Halls to 9,0
+Residence Halls to 10,0
+Residence Halls to 12,0
+Housing Office to 11,0
+Housing Office to 12,0
+Housing Office to 13,0
+Student Housing to 14,0
+Student Housing to 15,0
+Student Housing to 18,0
+Student Housing to 19,0
+Student Health & Counseling Center to 54,0
+Student Health & Counseling Center to 57,0
+Student Health & Counseling Center to 59,0
+Titan Gymnasium to 52,0
+Titan Gymnasium to 59,0
+Titan Gymnasium to 79,0
+Student Rec Center to 46,0
+Student Rec Center to 50,0
+Student Rec Center to 83,0
+State College Parking Structure to 46,0
+State College Parking Structure to 47,0
+University Police to 43,0
+University Police to 47,0
+University Police to 48,0
+Golleher Alumni House to 42,0
+Golleher Alumni House to 43,0
+Golleher Alumni House to 44,0
+Titan Student Union to 44,0
+Titan Student Union to 84,0
+Titan Student Union to 85,0
+Titan Student Union to 88,0
+Titan Student Union to 89,0
+Bookstore/Titan Shops to 81,0
+Bookstore/Titan Shops to 84,0
+Bookstore/Titan Shops to 85,0
+Pollak Library to 74,0
+Pollak Library to 76,0
+Pollak Library to 77,0
+Education-Classroom to 63,0
+Education-Classroom to 64,0
+Education-Classroom to 72,0
+Engineering to 17,0
+Engineering to 56,0
+Engineering to 65,0
+Computer Science to 17,0
+Computer Science to 67,0
+E Parking to 68,0
+E Parking to 69,0
+I Parking to 66,0
+I Parking to 69,0
+I Parking to 70,0
+Becker Ampitheatre to 85,0
+Becker Ampitheatre to 87,0
+Becker Ampitheatre to 93,0
+Visual Arts to 92,0
+Visual Arts to 93,0
+Visual Arts to 94,0
+Visual Arts to 95,0
+Clayes Performing Arts Center to 75,0
+Clayes Performing Arts Center to 87,0
+Clayes Performing Arts Center to 103,0
+Clayes Performing Arts Center to 104,0
+Quad to 74,0
+Quad to 125,0
+Humanities-Social Science to 72,0
+Humanities-Social Science to 127,0
+Humanities-Social Science to 128,0
+F Parking to 70,0
+F Parking to 114,0
+F Parking to 116,0
+F Parking to 129,0
+Eastside Parking Structure to 69,0
+University Hall to 119,0
+University Hall to 122,0
+University Hall to 127,0
+McCarthy Hall to 122,0
+McCarthy Hall to 123,0
+McCarthy Hall to 124,0
+McCarthy Hall to 126,0
+Greenhouse Complex to 104,0
+Greenhouse Complex to 105,0
+Nutwood Parking Structure to 95,0
+Nutwood Parking Structure to 97,0
+Nutwood Parking Structure to 101,0
+Nutwood Parking Structure to 102,0
+Dan Black Hall to 106,0
+Dan Black Hall to 107,0
+Dan Black Hall to 121,0
+Dan Black Hall to 123,0
+Carl's Jr. to 117,0
+Carl's Jr. to 118,0
+Carl's Jr. to 119,0
+Carl's Jr. to 120,0
+Langsdorf Hall to 108,0
+Langsdorf Hall to 109,0
+Langsdorf Hall to 121,0
+Mihaylo Hall to 110,0
+Mihaylo Hall to 111,0
+Mihaylo Hall to 115,0
+Mihaylo Hall to 117,0
+C Parking to 98,0
+C Parking to 99,0
+C Parking to 101,0
+Fullerton Marriott to 111,0
+Fullerton Marriott to 112,0
 1 to 2,220
 1 to 39,160
 2 to 27,144
