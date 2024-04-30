@@ -1,13 +1,11 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import networkx as nx
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter as tk
 from tkinter import ttk
-
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import networkx as nx
 import parser
-
+from generate_traffic import generate_traffic
+import matplotlib.image as mpimg
 
 class CampusNavigationApp:
     def __init__(self, root):
@@ -62,8 +60,7 @@ class CampusNavigationApp:
         self.style.configure("InputPanel.TFrame", background="#f0f0f0")
 
     def generate_traffic(self):
-        # Implement traffic generation functionality here
-        pass
+        generate_traffic(self.ax, self.canvas)
 
     def create_canvas(self):
         self.canvas_frame = ttk.Frame(self.root)
@@ -105,10 +102,6 @@ class CampusNavigationApp:
         start_point = self.start_combo.get()
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
-
-        # Execute selected algorithm and update graph display accordingly
-        # Add your algorithm implementation here
-
 
 if __name__ == "__main__":
     root = tk.Tk()
