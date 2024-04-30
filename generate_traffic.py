@@ -52,7 +52,7 @@ def generate_traffic(ax, canvas):
     image = mpimg.imread('campus map node graph.png')
     image_width = 629
     image_height = 897
-    ax.imshow(image, extent=[0, image_width, 0, image_height], alpha=0.5)
+    ax.imshow(image, extent=[0, image_width, 0, image_height], alpha=1)
     ax.axis('off')
 
     # Update canvas
