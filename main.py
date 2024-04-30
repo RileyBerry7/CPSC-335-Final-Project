@@ -6,6 +6,7 @@ import networkx as nx
 import parser
 from generate_traffic import generate_traffic
 import matplotlib.image as mpimg
+import bfs
 
 class CampusNavigationApp:
     def __init__(self, root):
@@ -107,9 +108,21 @@ class CampusNavigationApp:
         self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
     def execute_algorithm(self):
+        graph = parser.parse_graph_csv('edgeinformation.csv')
+
+        # Create an undirected graph
+        G = nx.Graph()
+
+        # Add edges from the adjacency list
+        for node in graph:
+            for neighbor, weight in graph[node]:
+                G.add_edge(node, neighbor, weight=weight)
         start_point = self.start_combo.get()
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
+        
+        if algorithm == 'BFS':
+            bfs.bfs(G.adj,start_point,end_point)
 
 if __name__ == "__main__":
     root = tk.Tk()
