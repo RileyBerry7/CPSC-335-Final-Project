@@ -46,7 +46,7 @@ def generate_traffic(ax, canvas):
             # Draw black edges with slightly larger width as outline
             nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
             # Draw colored edges with desired width
-            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color=G[u][v]['color'], width=2.5)
+            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color=G[u][v]['color'], width=3.3)
 
     # Load and overlay the campus map image
     image = mpimg.imread('campus map node graph.png')

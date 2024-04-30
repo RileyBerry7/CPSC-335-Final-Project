@@ -98,7 +98,8 @@ class CampusNavigationApp:
         image_width = 629
         image_height = 897
 
-        self.ax.imshow(image, extent=[0, image_width, 0, image_height], alpha=0.5)
+        # alpha here controls transparency of backround image (0 - 1)
+        self.ax.imshow(image, extent=[0, image_width, 0, image_height], alpha=1)
         self.ax.axis('off')
 
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.canvas_frame)
