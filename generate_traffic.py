@@ -37,7 +37,7 @@ def generate_traffic(ax, canvas):
 
     # Draw nodes *Black Edges too
     nx.draw(G, pos, with_labels=False, node_size=0, node_color="black", font_size=8, font_weight="bold",
-            ax=ax, width=1)
+            ax=ax, width=0)
 
     # Draw edges with updated colors and black outline
     edges = G.edges()

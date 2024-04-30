@@ -12,6 +12,15 @@ class CampusNavigationApp:
         self.root = root
         self.root.title("Campus Navigation System")
         self.root.geometry("1200x600")
+        self.root.configure(bg="#1e1e1e")  # Set background color to dark gray
+
+        # Dark mode styling for the top bar
+        self.style = ttk.Style()
+        self.style.theme_use('clam')  # Use a classic theme for consistent appearance across platforms
+        self.style.configure('.', background='#1e1e1e', foreground='white')  # Set default foreground and background
+        self.style.configure('TButton', background='#333', font=('Helvetica', 12))  # Dark mode button style
+        self.style.configure('TFrame', background='#1e1e1e')  # Dark mode frame background
+        self.style.configure('TCombobox', foreground='black')  # Set dropdown text color to black
 
         # Create UI elements
         self.create_input_panel()
@@ -19,9 +28,8 @@ class CampusNavigationApp:
         self.canvas_update_interval = 10  # Update canvas every 100 milliseconds
 
     def create_input_panel(self):
-        self.input_panel = ttk.Frame(self.root, padding="20", style="Dark.TFrame")
+        self.input_panel = ttk.Frame(self.root, padding="20")
         self.input_panel.grid(row=0, column=0, sticky="ns")
-        self.input_panel.configure(style="InputPanel.TFrame")
 
         locations = parser.parse_location_csv('locations.csv')
 
@@ -44,20 +52,12 @@ class CampusNavigationApp:
         self.algorithm_combo.grid(row=2, column=1)
 
         # Button to execute the selected algorithm
-        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm,
-                                         style="Accent.TButton")
-        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20,
-                                 sticky="ew")  # Centered in the left panel side
+        self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm)
+        self.execute_button.grid(row=200, column=0, columnspan=2, pady=20, sticky="ew")  # Centered in the left panel side
 
         # Generate traffic button
-        self.traffic_button = ttk.Button(self.input_panel, text="Generate traffic", command=self.generate_traffic,
-                                         style="Accent.TButton")
+        self.traffic_button = ttk.Button(self.input_panel, text="Generate traffic", command=self.generate_traffic)
         self.traffic_button.grid(row=3, column=0, columnspan=2, pady=10, sticky="ew")
-
-        # Configure button style
-        self.style = ttk.Style()
-        self.style.configure("Accent.TButton", background="#4CAF50", foreground="white", font=("Helvetica", 12))
-        self.style.configure("InputPanel.TFrame", background="#f0f0f0")
 
     def generate_traffic(self):
         generate_traffic(self.ax, self.canvas)
@@ -76,17 +76,24 @@ class CampusNavigationApp:
         # Add edges from the adjacency list
         for node in graph:
             for neighbor, weight in graph[node]:
-                G.add_edge(node, neighbor, weight=weight)
+                if weight < 999:  # Only add edges with weight less than 999
+                    G.add_edge(node, neighbor, weight=weight)
 
         # call the parser function to read the node position CSV file
         node_positions = parser.parse_node_positions_csv("nodepositions.csv")
         pos = node_positions
 
         self.fig, self.ax = plt.subplots(figsize=(6, 6))
-        nx.draw(G, pos, with_labels=False, node_size=15, node_color="black", font_size=8, font_weight="bold",
-                ax=self.ax, edge_color="gray", width=0.5)
 
-        nx.draw_networkx_edges(G, pos, ax=self.ax, edge_color='black', width=0.5)
+        # Draw nodes
+        nx.draw(G, pos, with_labels=False, node_size=0, node_color="black", font_size=8, font_weight="bold",
+                ax=self.ax)
+
+        # Draw edges with width based on weight
+        for u, v, d in G.edges(data=True):
+            if d['weight'] < 999:
+                # orgiginal black line width
+                nx.draw_networkx_edges(G, pos, edgelist=[(u, v)], ax=self.ax, width=3.5)
 
         image_width = 629
         image_height = 897
