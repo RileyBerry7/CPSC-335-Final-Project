@@ -7,6 +7,7 @@ import parser
 from generate_traffic import generate_traffic
 import matplotlib.image as mpimg
 import bfs
+import dfs
 
 class CampusNavigationApp:
     def __init__(self, root):
@@ -123,6 +124,8 @@ class CampusNavigationApp:
         
         if algorithm == 'BFS':
             bfs.bfs(G.adj,start_point,end_point)
+        elif algorithm == 'DFS':
+            dfs.dfs(G.adj,start_point,end_point)
 
 if __name__ == "__main__":
     root = tk.Tk()
