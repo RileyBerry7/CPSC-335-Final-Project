@@ -17,6 +17,10 @@ def parse_graph_csv(filename):
             if source not in graph:
                 graph[source] = []
             graph[source].append((dest, edge_weight, edge_color_str))
+            # Add edge from destination to source (for undirected graph)
+            if dest not in graph:
+                graph[dest] = []
+            graph[dest].append((source, edge_weight, edge_color_str))
     return graph
 
 def parse_location_csv(filename):
