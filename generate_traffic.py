@@ -57,3 +57,15 @@ def generate_traffic(ax, canvas):
 
     # Update canvas
     canvas.draw()
+
+def change_edges_color(G, pos, ax, canvas, nodes_to_color):
+   edges = G.edges()
+   for u, v in edges:
+       if (u in nodes_to_color and v in nodes_to_color) or (v in nodes_to_color and u in nodes_to_color):
+           # Draw edges between nodes in nodes_to_color array in purple
+           nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='purple', width=3.5)
+           nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(v, u)], edge_color='purple', width=3.5)
+       # else:
+       #     nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
+
+   canvas.draw()
