@@ -38,3 +38,4 @@ def parse_node_positions_csv(filename):
             coordinate_y = float(row['Coordinate_Y'])
             node_positions[node_name] = (coordinate_x, coordinate_y)
     return node_positions
+ # type: ignore

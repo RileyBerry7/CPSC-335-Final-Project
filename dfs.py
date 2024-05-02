@@ -7,7 +7,7 @@ def dfs(adj_list, start_point, end_point):
     while stack:
         current_node, total_weight, path = stack.pop()
         if current_node == end_point:
-            # print(total_weight, path)
+            print(total_weight, path)
             return total_weight, path
         if current_node not in visited:
             visited.add(current_node)
