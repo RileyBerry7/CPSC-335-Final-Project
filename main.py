@@ -5,6 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import networkx as nx
 import parser
 from generate_traffic import generate_traffic
+from generate_traffic import change_edges_color
 import matplotlib.image as mpimg
 import bfs
 import dfs
@@ -115,6 +116,9 @@ class CampusNavigationApp:
         # Create an undirected graph
         G = nx.Graph()
 
+        node_positions = parser.parse_node_positions_csv("nodepositions.csv")
+        pos = node_positions
+
         # Add edges from the adjacency list
         for node in graph:
             for neighbor, weight in graph[node]:
@@ -122,13 +126,16 @@ class CampusNavigationApp:
         start_point = self.start_combo.get()
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
-        
+
         if algorithm == 'BFS':
-            bfs.bfs(G.adj,start_point,end_point)
+            # bfs.bfs(G.adj,start_point,end_point)
+            change_edges_color(G, pos, self.ax, self.canvas, bfs.bfs(G.adj, start_point, end_point))
         elif algorithm == 'DFS':
-            dfs.dfs(G.adj,start_point,end_point)
+            # dfs.dfs(G.adj,start_point,end_point)
+            change_edges_color(G, pos, self.ax, self.canvas, dfs.dfs(G.adj, start_point, end_point))
         elif algorithm == "Dijkstra's":
             total_distance, path = dijkstra.dijkstra_algorithm(G.adj,start_point,end_point)
+            change_edges_color(G, pos, self.ax, self.canvas, path)
 
 
 if __name__ == "__main__":
