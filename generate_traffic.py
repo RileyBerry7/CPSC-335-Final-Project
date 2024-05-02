@@ -21,13 +21,13 @@ def generate_traffic(ax, canvas):
                 G.add_edge(node, neighbor, weight=weight, color='black')
             else:
                 # Apply traffic algorithm
-                randNum = np.random.randint(0, 11)
+                randNum = np.random.randint(1, 15)
                 final_weight = weight * randNum / 3
                 # Assign edge color based on the new weight
-                edge_color = 'red' if randNum == 0 else \
-                             'green' if 1 <= randNum <= 5 else \
-                             'yellow' if 6 <= randNum <= 7 else \
-                             'orange'
+                edge_color = 'green' if 1 <= randNum <= 9 else \
+                            'yellow' if 10 <= randNum <= 11 else \
+                            'orange' if 12 <= randNum <= 13 else \
+                            'red'
                 # Add edge with updated weight
                 G.add_edge(node, neighbor, weight=final_weight, color=edge_color)
 
