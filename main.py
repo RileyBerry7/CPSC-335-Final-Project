@@ -8,6 +8,7 @@ from generate_traffic import generate_traffic
 import matplotlib.image as mpimg
 import bfs
 import dfs
+import dijkstra
 
 class CampusNavigationApp:
     def __init__(self, root):
@@ -126,6 +127,9 @@ class CampusNavigationApp:
             bfs.bfs(G.adj,start_point,end_point)
         elif algorithm == 'DFS':
             dfs.dfs(G.adj,start_point,end_point)
+        elif algorithm == "Dijkstra's":
+            dijkstra.dijkstra_algorithm(G.adj,start_point,end_point)
+
 
 if __name__ == "__main__":
     root = tk.Tk()
