@@ -8,6 +8,7 @@ from generate_traffic import generate_traffic
 import matplotlib.image as mpimg
 import bfs
 import dfs
+from display_traversal import display_traversal
 
 class CampusNavigationApp:
     def __init__(self, root):
@@ -63,6 +64,12 @@ class CampusNavigationApp:
 
     def generate_traffic(self):
         generate_traffic(self.ax, self.canvas)
+
+    def display_traversal(self, path, G):
+        # call the parser function to read the node position CSV file
+        pos = parser.parse_node_positions_csv("nodepositions.csv")
+
+        display_traversal(G, pos, path, self.ax)
 
     def create_canvas(self):
         self.canvas_frame = ttk.Frame(self.root)
@@ -121,9 +128,15 @@ class CampusNavigationApp:
         start_point = self.start_combo.get()
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
-        
+
         if algorithm == 'BFS':
-            bfs.bfs(G.adj,start_point,end_point)
+            totalWeight, path = bfs.bfs(G.adj,start_point,end_point)
+            if path:
+                #path is a list of the names of the traversed nodes
+                #display traversed path on the graph as blue
+                #...
+                print("path starting to display")
+                self.display_traversal(path, G)
         elif algorithm == 'DFS':
             dfs.dfs(G.adj,start_point,end_point)
 
