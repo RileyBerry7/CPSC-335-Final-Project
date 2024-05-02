@@ -26,6 +26,17 @@ class CampusNavigationApp:
         self.style.configure('TFrame', background='#1e1e1e')  # Dark mode frame background
         self.style.configure('TCombobox', foreground='black')  # Set dropdown text color to black
 
+        graph = parser.parse_graph_csv('edgeinformation.csv')
+
+        # Create an undirected graph
+        self.G = nx.Graph()
+
+        # Add edges from the adjacency list
+        for node in graph:
+            for neighbor, weight, color in graph[node]:
+                self.G.add_edge(node, neighbor, weight=weight, color=color)
+
+
         # Create UI elements
         self.create_input_panel()
         self.create_canvas()
@@ -64,7 +75,7 @@ class CampusNavigationApp:
         self.traffic_button.grid(row=3, column=0, columnspan=2, pady=10, sticky="ew")
 
     def generate_traffic(self):
-        generate_traffic(self.ax, self.canvas)
+        self.G = generate_traffic(self.ax, self.canvas)
 
     def create_canvas(self):
         self.canvas_frame = ttk.Frame(self.root)
@@ -79,7 +90,7 @@ class CampusNavigationApp:
 
         # Add edges from the adjacency list
         for node in graph:
-            for neighbor, weight in graph[node]:
+            for neighbor, weight, color in graph[node]:
                 if weight < 999:  # Only add edges with weight less than 999
                     G.add_edge(node, neighbor, weight=weight)
 
@@ -112,29 +123,29 @@ class CampusNavigationApp:
 
     def execute_algorithm(self):
         graph = parser.parse_graph_csv('edgeinformation.csv')
-
-        # Create an undirected graph
-        G = nx.Graph()
-
         node_positions = parser.parse_node_positions_csv("nodepositions.csv")
-        pos = node_positions
+
+        G = nx.Graph()
 
         # Add edges from the adjacency list
         for node in graph:
-            for neighbor, weight in graph[node]:
+            for neighbor, weight, color in graph[node]:
                 G.add_edge(node, neighbor, weight=weight)
+
+        pos = node_positions
+
         start_point = self.start_combo.get()
         end_point = self.end_combo.get()
         algorithm = self.algorithm_combo.get()
 
         if algorithm == 'BFS':
-            # bfs.bfs(G.adj,start_point,end_point)
-            change_edges_color(G, pos, self.ax, self.canvas, bfs.bfs(G.adj, start_point, end_point))
+            path = bfs.bfs(G.adj,start_point,end_point)
+            change_edges_color(G, pos, self.ax, self.canvas, path)
         elif algorithm == 'DFS':
-            # dfs.dfs(G.adj,start_point,end_point)
-            change_edges_color(G, pos, self.ax, self.canvas, dfs.dfs(G.adj, start_point, end_point))
+            path = dfs.dfs(G.adj,start_point,end_point)
+            change_edges_color(G, pos, self.ax, self.canvas, path)
         elif algorithm == "Dijkstra's":
-            total_distance, path = dijkstra.dijkstra_algorithm(G.adj,start_point,end_point)
+            total_distance, path = dijkstra.dijkstra_algorithm(self.G.adj,start_point,end_point)
             change_edges_color(G, pos, self.ax, self.canvas, path)
 
 

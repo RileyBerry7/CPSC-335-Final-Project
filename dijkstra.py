@@ -1,5 +1,7 @@
 def dijkstra_algorithm(adjacency_list, origin, destination):
 
+    print(adjacency_list)
+
     distance = {node: float('infinity') for node in adjacency_list}
     previous = {node: None for node in adjacency_list}
     distance[origin] = 0
@@ -23,7 +25,11 @@ def dijkstra_algorithm(adjacency_list, origin, destination):
 
         for neighbor, edge_info in adjacency_list[current_node].items():
             weight = edge_info['weight']
-            if weight == 999 and not (current_node == origin or neighbor == destination):
+            color = edge_info['color']
+            # Avoid red-colored edges
+            if color == 'red':
+                continue
+            elif weight == 999 and not (current_node == origin or neighbor == destination):
                 continue
             new_distance = current_distance + weight
 

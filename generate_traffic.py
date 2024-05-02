@@ -3,6 +3,7 @@ import matplotlib.image as mpimg
 import networkx as nx
 import parser
 
+
 def generate_traffic(ax, canvas):
     # Clear existing graph
     ax.clear()
@@ -15,7 +16,7 @@ def generate_traffic(ax, canvas):
 
     # Add edges from the adjacency list
     for node in graph:
-        for neighbor, weight in graph[node]:
+        for neighbor, weight, color in graph[node]:
             # Exclude edges with weight 999 or greater
             if weight >= 999:
                 G.add_edge(node, neighbor, weight=weight, color='black')
@@ -25,8 +26,8 @@ def generate_traffic(ax, canvas):
                 final_weight = weight * randNum / 3
                 # Assign edge color based on the new weight
                 edge_color = 'green' if 1 <= randNum <= 9 else \
-                            'yellow' if 10 <= randNum <= 11 else \
-                            'orange' if 12 <= randNum <= 13 else \
+                    'yellow' if 10 <= randNum <= 11 else \
+                        'orange' if 12 <= randNum <= 13 else \
                             'red'
                 # Add edge with updated weight
                 G.add_edge(node, neighbor, weight=final_weight, color=edge_color)
@@ -58,14 +59,17 @@ def generate_traffic(ax, canvas):
     # Update canvas
     canvas.draw()
 
-def change_edges_color(G, pos, ax, canvas, nodes_to_color):
-   edges = G.edges()
-   for u, v in edges:
-       if (u in nodes_to_color and v in nodes_to_color) or (v in nodes_to_color and u in nodes_to_color):
-           # Draw edges between nodes in nodes_to_color array in purple
-           nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='purple', width=3.5)
-           nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(v, u)], edge_color='purple', width=3.5)
-       # else:
-       #     nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
+    return G
 
-   canvas.draw()
+
+def change_edges_color(G, pos, ax, canvas, nodes_to_color):
+    edges = G.edges()
+    for u, v in edges:
+        if (u in nodes_to_color and v in nodes_to_color) or (v in nodes_to_color and u in nodes_to_color):
+            # Draw edges between nodes in nodes_to_color array in purple
+            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='purple', width=3.5)
+            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(v, u)], edge_color='purple', width=3.5)
+        # else:
+        #     nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
+
+    canvas.draw()

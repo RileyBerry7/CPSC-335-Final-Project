@@ -7,6 +7,7 @@ def parse_graph_csv(filename):
         for row in reader:
             edge_relation = row['Edge Relation']
             edge_weight_str = row['Edge Weight']
+            edge_color_str = row['Edge Color']
             try:
                 edge_weight = int(edge_weight_str)
             except ValueError:
@@ -15,7 +16,7 @@ def parse_graph_csv(filename):
             source, dest = edge_relation.split(' to ')
             if source not in graph:
                 graph[source] = []
-            graph[source].append((dest, edge_weight))
+            graph[source].append((dest, edge_weight, edge_color_str))
     return graph
 
 def parse_location_csv(filename):
