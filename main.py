@@ -128,7 +128,7 @@ class CampusNavigationApp:
         elif algorithm == 'DFS':
             dfs.dfs(G.adj,start_point,end_point)
         elif algorithm == "Dijkstra's":
-            dijkstra.dijkstra_algorithm(G.adj,start_point,end_point)
+            total_distance, path = dijkstra.dijkstra_algorithm(G.adj,start_point,end_point)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 def dijkstra_algorithm(adjacency_list, origin, destination):
+
     distance = {node: float('infinity') for node in adjacency_list}
     previous = {node: None for node in adjacency_list}
     distance[origin] = 0
