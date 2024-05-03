@@ -8,6 +8,8 @@ def parse_graph_csv(filename):
             edge_relation = row['Edge Relation']
             edge_weight_str = row['Edge Weight']
             edge_color_str = row['Edge Color']
+            edge_wheelchair = row['Wheelchair']
+            edge_incline = row['Steep Incline']
             try:
                 edge_weight = int(edge_weight_str)
             except ValueError:
@@ -16,11 +18,11 @@ def parse_graph_csv(filename):
             source, dest = edge_relation.split(' to ')
             if source not in graph:
                 graph[source] = []
-            graph[source].append((dest, edge_weight, edge_color_str))
+            graph[source].append((dest, edge_weight, edge_color_str, edge_wheelchair, edge_incline))
             # Add edge from destination to source (for undirected graph)
             if dest not in graph:
                 graph[dest] = []
-            graph[dest].append((source, edge_weight, edge_color_str))
+            graph[dest].append((source, edge_weight, edge_color_str, edge_wheelchair, edge_incline))
     return graph
 
 def parse_location_csv(filename):

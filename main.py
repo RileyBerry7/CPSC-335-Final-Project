@@ -34,7 +34,7 @@ class CampusNavigationApp:
 
         # Add edges from the adjacency list
         for node in graph:
-            for neighbor, weight, color in graph[node]:
+            for neighbor, weight, color, wheelchair, incline in graph[node]:
                 self.G.add_edge(node, neighbor, weight=weight, color=color)
 
 
@@ -67,13 +67,19 @@ class CampusNavigationApp:
         self.algorithm_combo["values"] = ["DFS", "BFS", "Dijkstra's"]  # Add more algorithms if needed
         self.algorithm_combo.grid(row=2, column=1)
 
+        # Accessibility Selection
+        ttk.Label(self.input_panel, text="Accessibility:").grid(row=3, column=0, stick="w")
+        self.accessibility_combo = ttk.Combobox(self.input_panel, width=20, state="readonly")
+        self.accessibility_combo["values"] = ["None", "Wheelchair Only", "No Steep Inclines"]
+        self.accessibility_combo.grid(row=3, column=1)
+
         # Button to execute the selected algorithm
         self.execute_button = ttk.Button(self.input_panel, text="Execute", command=self.execute_algorithm)
         self.execute_button.grid(row=200, column=0, columnspan=2, pady=20, sticky="ew")  # Centered in the left panel side
 
         # Generate traffic button
         self.traffic_button = ttk.Button(self.input_panel, text="Generate traffic", command=self.generate_traffic)
-        self.traffic_button.grid(row=3, column=0, columnspan=2, pady=10, sticky="ew")
+        self.traffic_button.grid(row=4, column=0, columnspan=2, pady=10, sticky="ew")
         
         # Distance textbox
         self.distance_text = ttk.Label(self.input_panel, text="Distance: ")
@@ -92,7 +98,7 @@ class CampusNavigationApp:
         self.G.clear()  
         graph = parser.parse_graph_csv('edgeinformation.csv')
         for node in graph:
-            for neighbor, weight, color in graph[node]:
+            for neighbor, weight, color, wheelchair, incline in graph[node]:
                 self.G.add_edge(node, neighbor, weight=weight, color="black")
 
         #Reset distance and time textboxes
@@ -106,7 +112,8 @@ class CampusNavigationApp:
         self.create_canvas()  
         
     def generate_traffic(self):
-        self.G = generate_traffic(self.ax, self.canvas)
+        accessibility = self.accessibility_combo.get()
+        self.G = generate_traffic(self.ax, self.canvas, accessibility)
 
     def create_canvas(self):
         self.canvas_frame = ttk.Frame(self.root)
@@ -121,7 +128,7 @@ class CampusNavigationApp:
 
         # Add edges from the adjacency list
         for node in graph:
-            for neighbor, weight, color in graph[node]:
+            for neighbor, weight, color, wheelchair, incline in graph[node]:
                 if weight < 999:  # Only add edges with weight less than 999
                     G.add_edge(node, neighbor, weight=weight)
 
@@ -160,7 +167,7 @@ class CampusNavigationApp:
 
         # Add edges from the adjacency list
         for node in graph:
-            for neighbor, weight, color in graph[node]:
+            for neighbor, weight, color, wheelchair, incline in graph[node]:
                 if weight >= 999:
                     randNum = np.random.randint(8, 15)
                     final_weight = weight/randNum

@@ -2,9 +2,10 @@ import numpy as np
 import matplotlib.image as mpimg
 import networkx as nx
 import parser
+import csv
 
 
-def generate_traffic(ax, canvas):
+def generate_traffic(ax, canvas, accessibility):
     # Clear existing graph
     ax.clear()
 
@@ -16,10 +17,14 @@ def generate_traffic(ax, canvas):
 
     # Add edges from the adjacency list
     for node in graph:
-        for neighbor, weight, color in graph[node]:
+        for neighbor, weight, color, wheelchair, incline in graph[node]:
             # Exclude edges with weight 999 or greater
             if weight >= 999:
                 G.add_edge(node, neighbor, weight=weight, color='black')
+            elif accessibility == 'Wheelchair Only' and wheelchair == "No":
+                G.add_edge(node, neighbor, weight=1000, color='purple')
+            elif accessibility == 'No Steep Inclines' and incline == "Yes":
+                G.add_edge(node, neighbor, weight=1000, color='purple')
             else:
                 # Apply traffic algorithm
                 randNum = np.random.randint(1, 15)
@@ -48,6 +53,10 @@ def generate_traffic(ax, canvas):
             nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
             # Draw colored edges with desired width
             nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color=G[u][v]['color'], width=3.3)
+        if G[u][v]['weight'] == 1000:
+            # Draw black edges with slightly larger width as outline
+            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color='black', width=3.5)
+            nx.draw_networkx_edges(G, pos, ax=ax, edgelist=[(u, v)], edge_color=G[u][v]['purple'], width=3.5)
 
     # Load and overlay the campus map image
     image = mpimg.imread('campus map node graph.png')
