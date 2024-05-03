@@ -1,3 +1,4 @@
+import numpy as np
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
@@ -73,7 +74,37 @@ class CampusNavigationApp:
         # Generate traffic button
         self.traffic_button = ttk.Button(self.input_panel, text="Generate traffic", command=self.generate_traffic)
         self.traffic_button.grid(row=3, column=0, columnspan=2, pady=10, sticky="ew")
+        
+        # Distance textbox
+        self.distance_text = ttk.Label(self.input_panel, text="Distance: ")
+        self.distance_text.grid(row=500, column=0, pady=10, sticky="ew")
+        
+        # Time textbox
+        self.time_text = ttk.Label(self.input_panel, text = "Time: ")
+        self.time_text.grid(row=600, column=0, pady=10, sticky="ew")
+        
+        # Clear button
+        self.clear_button = ttk.Button(self.input_panel, text="Clear", command = self.reset_canvas)
+        self.clear_button.grid(row=1000, column = 0, columnspan = 2, pady = 10, sticky= "ew")
+    
+    #Clear button function
+    def reset_canvas(self):
+        self.G.clear()  
+        graph = parser.parse_graph_csv('edgeinformation.csv')
+        for node in graph:
+            for neighbor, weight, color in graph[node]:
+                self.G.add_edge(node, neighbor, weight=weight, color="black")
 
+        #Reset distance and time textboxes
+        self.start_combo.set('')
+        self.end_combo.set('')
+        self.algorithm_combo.set('')
+        self.distance_text.config(text="Distance:  mi")
+        self.time_text.config(text="Time:  min")
+
+        self.ax.cla()  
+        self.create_canvas()  
+        
     def generate_traffic(self):
         self.G = generate_traffic(self.ax, self.canvas)
 
@@ -120,7 +151,7 @@ class CampusNavigationApp:
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.canvas_frame)
         self.canvas.draw()
         self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-
+  
     def execute_algorithm(self):
         graph = parser.parse_graph_csv('edgeinformation.csv')
         node_positions = parser.parse_node_positions_csv("nodepositions.csv")
@@ -130,7 +161,12 @@ class CampusNavigationApp:
         # Add edges from the adjacency list
         for node in graph:
             for neighbor, weight, color in graph[node]:
-                G.add_edge(node, neighbor, weight=weight)
+                if weight >= 999:
+                    randNum = np.random.randint(8, 15)
+                    final_weight = weight/randNum
+                    G.add_edge(node, neighbor, weight=final_weight)
+                else:
+                    G.add_edge(node, neighbor, weight=weight)
 
         pos = node_positions
 
@@ -139,14 +175,25 @@ class CampusNavigationApp:
         algorithm = self.algorithm_combo.get()
 
         if algorithm == 'BFS':
-            path = bfs.bfs(G.adj,start_point,end_point)
+            weight, path = bfs.bfs(G.adj,start_point,end_point)
             change_edges_color(G, pos, self.ax, self.canvas, path)
         elif algorithm == 'DFS':
-            path = dfs.dfs(G.adj,start_point,end_point)
+            weight, path = dfs.dfs(G.adj,start_point,end_point)
             change_edges_color(G, pos, self.ax, self.canvas, path)
         elif algorithm == "Dijkstra's":
-            total_distance, path = dijkstra.dijkstra_algorithm(self.G.adj,start_point,end_point)
+            weight, path = dijkstra.dijkstra_algorithm(self.G.adj,start_point,end_point)
             change_edges_color(G, pos, self.ax, self.canvas, path)
+        
+        distance_in_mile = weight * 0.000621371
+        if distance_in_mile < .1:
+            rounded_distance = round(distance_in_mile,6)
+        else:
+            rounded_distance = round(distance_in_mile,2)
+        time = round(distance_in_mile/3*60)
+        print(time)
+        self.distance_text.config(text="Distance: " + str(rounded_distance) + " miles")
+        self.time_text.config(text="Time: " + str(time) + " minutes")
+
 
 
 if __name__ == "__main__":

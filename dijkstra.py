@@ -1,3 +1,4 @@
+import numpy as np
 def dijkstra_algorithm(adjacency_list, origin, destination):
 
     print(adjacency_list)
@@ -19,7 +20,7 @@ def dijkstra_algorithm(adjacency_list, origin, destination):
                 current_node = previous[current_node]
             path.append(origin)
             path.reverse()
-            distance[destination] -= (999*2)
+            #distance[destination] -= (999*2)
             print(f"Shortest path: {path} and total distance: {distance[destination]}")
             return distance[destination], path
 
@@ -29,6 +30,9 @@ def dijkstra_algorithm(adjacency_list, origin, destination):
             # Avoid red-colored edges
             if color == 'red':
                 continue
+            if weight == 999:
+                randNum = np.random.randint(8, 15)
+                weight = weight/randNum
             elif weight == 999 and not (current_node == origin or neighbor == destination):
                 continue
             new_distance = current_distance + weight
