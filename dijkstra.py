@@ -30,11 +30,11 @@ def dijkstra_algorithm(adjacency_list, origin, destination):
             # Avoid red-colored edges
             if color == 'red':
                 continue
-            if weight == 999:
-                randNum = np.random.randint(8, 15)
-                weight = weight/randNum
             elif weight == 999 and not (current_node == origin or neighbor == destination):
                 continue
+            elif weight == 999:
+                randNum = np.random.randint(8, 15)
+                weight = weight%randNum
             new_distance = current_distance + weight
 
             if new_distance < distance[neighbor]:
